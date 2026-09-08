@@ -3,213 +3,278 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#056b64" />
-  <title>Open a Trading & Demat Account with Geojit</title>
-  <meta name="description" content="Discover the benefits of opening a Trading & Demat Account with Geojit and explore Flip, Geojit's trading platform." />
+  <meta name="theme-color" content="#0a746b" />
+  <title>Open a Trading Account with Geojit</title>
+  <meta name="description" content="Open a Geojit Trading Account and discover Flip — research, market insights and powerful trading tools across mobile." />
   <style>
     :root{
-      --green:#056b64;
-      --green-hover:#045a55;
-      --teal:#0b8f83;
-      --mint:#edf7f6;
-      --cream:#f4f3e5;
-      --soft:#f7f9f9;
-      --card:#fbfcfc;
-      --line:#dce6e8;
-      --ink:#17252d;
-      --muted:#667782;
-      --white:#fff;
+      --green:#0a746b;
+      --green-dark:#075f58;
+      --green-soft:#eaf6f4;
+      --mint:#f2fbf8;
+      --sky:#eef5fb;
+      --cream:#fbf7e3;
+      --lilac:#f5f1fb;
+      --surface:#ffffff;
+      --surface-soft:#f7f9f9;
+      --line:#dbe7e7;
+      --text:#18262f;
+      --muted:#63747f;
+      --shadow:0 18px 50px rgba(21,48,57,.08);
       --radius:26px;
-      --shadow:0 18px 50px rgba(21,44,52,.08);
       --max:1180px;
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;color:var(--ink);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
-    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    button{font:inherit}
+    .container{width:min(var(--max), calc(100% - 40px));margin-inline:auto}
 
-    /* Header */
-    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,230,232,.92)}
-    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .logos{display:flex;align-items:center;gap:16px;min-width:0;flex-wrap:wrap}
-    .geojit-logo{width:162px;height:auto}
-    .pipe{font-size:24px;line-height:1;color:#9aa8ae;font-weight:300}
-    .partner-logo{width:158px;max-height:42px;object-fit:contain}
+    .site-header{
+      position:sticky;top:0;z-index:60;
+      background:rgba(255,255,255,.95);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(219,231,231,.9);
+    }
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand-pair{display:flex;align-items:center;gap:15px;min-width:0}
+    .brand-pair .geojit{width:154px;height:auto}
+    .brand-pair .pipe{font-size:22px;color:#9aa8ae;font-weight:300;line-height:1}
+    .brand-pair .union{width:154px;max-height:40px;object-fit:contain}
 
-    /* CTA */
-    .actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:60px;padding:0 28px;border-radius:999px;border:1.5px solid transparent;font-size:17px;font-weight:750;transition:.18s ease;white-space:nowrap}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+    .btn{
+      min-height:58px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:16px;
+      font-weight:760;white-space:nowrap;cursor:pointer;
+      transition:transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 24px rgba(5,107,100,.16)}
-    .btn-primary:hover{background:var(--green-hover)}
-    .btn-outline{background:transparent;color:var(--green);border-color:var(--teal)}
-    .btn-outline:hover{background:var(--mint)}
-    .btn-small{min-height:46px;padding:0 20px;font-size:14.5px}
-    .arrow{font-size:18px;line-height:1;transform:translateY(-1px)}
+    .btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 24px rgba(10,116,107,.16)}
+    .btn-primary:hover{background:var(--green-dark)}
+    .btn-outline{background:#fff;color:var(--green);border-color:#b8d8d4}
+    .btn-outline:hover{background:var(--green-soft)}
+    .btn-small{min-height:44px;padding:0 18px;font-size:14px}
+    .arrow{font-size:17px;line-height:1;transform:translateY(-1px)}
 
-    /* Hero */
-    .hero{padding:64px 0 34px;background:radial-gradient(circle at 88% 8%,rgba(245,213,78,.18),transparent 25%),linear-gradient(180deg,#fff 0%,#fbfdfd 100%);overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
-    .eyebrow{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:var(--mint);border:1px solid #d8ebe9;color:var(--green);font-size:13px;font-weight:800;margin-bottom:18px}
-    h1{font-size:clamp(40px,5vw,62px);line-height:1.03;letter-spacing:-.04em;margin:0 0 18px;max-width:690px}
-    .hero-copy>p{font-size:18px;line-height:1.72;color:var(--muted);margin:0 0 28px;max-width:660px}
-    .micro-points{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:22px;color:#5b6b75;font-size:14px}
-    .micro-points span{display:flex;align-items:center;gap:8px}
-    .tick{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--green);font-size:12px;font-weight:900}
+    .hero{
+      padding:56px 0 34px;
+      background:
+        radial-gradient(circle at 95% 5%, rgba(246,218,95,.18), transparent 24%),
+        radial-gradient(circle at 5% 96%, rgba(10,116,107,.06), transparent 24%),
+        linear-gradient(180deg,#fff 0%,#fbfdfd 100%);
+    }
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:56px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;padding:9px 14px;border-radius:999px;
+      background:var(--green-soft);border:1px solid #d1e8e4;color:var(--green);
+      font-size:13px;font-weight:800;margin-bottom:18px;
+    }
+    h1{margin:0 0 18px;max-width:670px;font-size:clamp(48px,5.4vw,78px);line-height:.98;letter-spacing:-.055em;font-weight:790}
+    .hero-copy>p{margin:0 0 28px;max-width:650px;color:var(--muted);font-size:18px;line-height:1.72}
+    .hero-points{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:24px;color:#566872;font-size:14px}
+    .hero-points span{display:flex;align-items:center;gap:9px}
+    .hero-points b{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);color:var(--green);font-size:12px}
 
-    .hero-visual{position:relative;min-height:560px}
-    .visual-bg{position:absolute;inset:34px 0 0 0;border-radius:34px;background:linear-gradient(150deg,#f5f3df 0%,#edf5f3 100%);border:1px solid #dce6e1}
-    .flip-chip{position:absolute;left:28px;top:18px;z-index:4;display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 18px;box-shadow:0 12px 34px rgba(20,42,48,.10)}
-    .flip-chip img{width:48px;height:48px;object-fit:contain}
-    .flip-chip span{font-size:14px;font-weight:750;color:#263640}
-    .desktop-hero{position:absolute;right:18px;top:76px;width:82%;z-index:1;filter:drop-shadow(0 24px 42px rgba(0,0,0,.13))}
-    .hero-phone{position:absolute;z-index:3;filter:drop-shadow(0 18px 30px rgba(0,0,0,.16));height:auto}
-    .hero-phone.one{width:160px;left:42px;bottom:16px;transform:rotate(-5deg)}
-    .hero-phone.two{width:160px;left:176px;bottom:8px;transform:rotate(4deg)}
+    .hero-visual{position:relative;min-height:570px}
+    .hero-shell{display:none}
+    .flip-pill{
+      position:absolute;left:0;top:0;z-index:4;display:flex;align-items:center;gap:9px;
+      padding:8px 12px 8px 9px;border-radius:999px;background:#fff;border:1px solid #e7edef;box-shadow:0 10px 28px rgba(21,48,57,.07);
+      color:#2a3842;font-size:12px;font-weight:760;
+    }
+    .flip-pill img{width:28px;height:28px;object-fit:contain}
+    .mobile-card{position:absolute;z-index:3;transition:transform .3s ease;filter:drop-shadow(0 28px 34px rgba(0,0,0,.16));height:470px}
+    .mobile-card.main{right:18px;top:82px;transform:rotate(0deg)}
+    .mobile-card.secondary{right:236px;top:118px;z-index:2;transform:rotate(0deg)}
+    .mobile-card img{height:100%;width:auto;max-width:none;object-fit:contain}
+    .hero-visual:hover .mobile-card.main{transform:translateY(-8px)}
+    .hero-visual:hover .mobile-card.secondary{transform:translateY(-6px)}
+    .floating-note{
+      position:absolute;left:38px;bottom:52px;z-index:4;max-width:238px;padding:16px 17px;
+      border-radius:20px;background:#eaf6f4;border:1px solid #cfe5e2;box-shadow:0 14px 32px rgba(21,48,57,.07);
+    }
+    .floating-note h3{margin:0 0 6px;font-size:16px;line-height:1.2;color:#123a38}
+    .floating-note p{margin:0;color:#536b72;font-size:13px;line-height:1.55}
 
-    /* Stats */
-    .stats-wrap{padding-top:18px}
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 12px 34px rgba(20,42,48,.04)}
-    .stat{padding:22px 16px;text-align:center;position:relative}
-    .stat:not(:last-child):after{content:"";position:absolute;right:0;top:26%;height:48%;width:1px;background:#e5ecee}
-    .stat strong{display:block;font-size:28px;line-height:1.1;letter-spacing:-.03em}
-    .stat span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+    .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 12px 34px rgba(23,48,56,.05)}
+    .stat{padding:24px 16px;text-align:center;position:relative}
+    .stat:not(:last-child)::after{content:"";position:absolute;right:0;top:25%;height:50%;width:1px;background:#e6edef}
+    .stat strong{display:block;font-size:29px;letter-spacing:-.03em;line-height:1.05}
+    .stat span{display:block;margin-top:7px;color:var(--muted);font-size:13px}
 
-    section{padding:78px 0}
-    .section-head{max-width:760px;margin-bottom:32px}
-    .section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px}
-    .section-head p{font-size:17px;line-height:1.7;color:var(--muted);margin:0}
+    section{padding:82px 0}
+    .section-head{max-width:760px;margin-bottom:30px}
+    .section-head h2{margin:0 0 10px;font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.034em}
+    .section-head p{margin:0;color:var(--muted);font-size:17px;line-height:1.68}
 
-    /* Why Geojit */
-    .why{background:var(--soft)}
-    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .why-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
-    .why-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#dff0ef;color:var(--green);font-size:19px;font-weight:900;margin-bottom:16px}
-    .why-card h3{font-size:20px;line-height:1.25;margin:0 0 9px}
-    .why-card p{font-size:14.7px;line-height:1.68;color:var(--muted);margin:0}
+    .value-section{background:var(--surface-soft)}
+    .benefit-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:15px}
+    .benefit-card{padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff;min-width:0}
+    .benefit-card:nth-child(1){background:linear-gradient(180deg,#fff,#fcfffe)}
+    .benefit-card:nth-child(2){background:linear-gradient(180deg,#fff,#f6fbfb)}
+    .benefit-card:nth-child(3){background:linear-gradient(180deg,#fff,#fffbea)}
+    .benefit-card:nth-child(4){background:linear-gradient(180deg,#fff,#f8fbff)}
+    .benefit-card:nth-child(5){background:linear-gradient(180deg,#fff,#f8fcf8)}
+    .benefit-icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:var(--green-soft);color:var(--green);font-weight:800;font-size:18px;margin-bottom:14px}
+    .benefit-card h3{margin:0 0 8px;font-size:18px;line-height:1.26}
+    .benefit-card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .terms{margin:14px 2px 0;color:#7a8992;font-size:12.5px}
 
-    /* Flip features: deliberately text-first, no cropped screenshots */
-    .flip-intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:38px;align-items:start}
-    .flip-title{position:sticky;top:112px}
-    .flip-title-row{display:flex;align-items:center;gap:13px;margin-bottom:14px}
-    .flip-title-row img{width:50px;height:50px;object-fit:contain}
-    .flip-title h2{font-size:clamp(32px,4vw,46px);line-height:1.08;letter-spacing:-.035em;margin:0 0 12px}
-    .flip-title p{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 24px}
-    .feature-list{display:grid;gap:12px}
-    .feature-item{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
-    .feature-no{width:44px;height:44px;border-radius:13px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:14px;font-weight:850}
-    .feature-item h3{font-size:19px;line-height:1.25;margin:0 0 6px}
-    .feature-item p{font-size:14.8px;line-height:1.66;color:var(--muted);margin:0}
+    .flip-section{background:#fff}
+    .flip-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:28px}
+    .flip-heading-copy{max-width:720px}
+    .flip-mark{display:inline-flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;background:var(--green-soft);border:1px solid #d8ebe8;color:var(--green);font-size:13px;font-weight:800;margin-bottom:14px}
+    .flip-mark img{width:30px;height:30px;object-fit:contain}
+    .flip-heading h2{margin:0 0 10px;font-size:clamp(30px,4vw,44px);line-height:1.08;letter-spacing:-.034em}
+    .flip-heading p{margin:0;color:var(--muted);font-size:17px;line-height:1.68}
 
-    /* Product showcase */
-    .product-showcase{background:var(--soft)}
-    .product-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
-    .desktop-panel,.phones-panel{background:linear-gradient(150deg,#f4f3e4 0%,#edf5f3 100%);border:1px solid #dce6e2;border-radius:30px;min-height:460px;position:relative;overflow:hidden}
-    .desktop-panel{display:grid;place-items:center;padding:30px}
-    .desktop-panel img{width:96%;filter:drop-shadow(0 24px 44px rgba(0,0,0,.12))}
-    .phones-panel{display:flex;align-items:flex-end;justify-content:center;gap:10px;padding:28px 18px 18px}
-    .phones-panel img{width:31%;max-width:175px;min-width:0;filter:drop-shadow(0 18px 30px rgba(0,0,0,.14))}
-    .phones-panel img:nth-child(2){transform:translateY(-18px)}
-
-    /* App buttons */
-    .download-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:22px}
-    .download-copy h3{font-size:20px;margin:0 0 5px}
-    .download-copy p{font-size:14.5px;color:var(--muted);margin:0}
-    .store-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .store-btn{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 18px;background:#fff;border:1.5px solid #cedbdd;border-radius:999px;color:#566772;transition:.18s ease}
-    .store-btn:hover{background:#fbfcfc;transform:translateY(-1px)}
-    .store-icon-circle{width:36px;height:36px;border-radius:50%;background:#e2f1f1;display:grid;place-items:center;flex:0 0 auto}
-    .store-icon-circle svg{width:17px;height:17px}
+    .store-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .store-btn{display:inline-flex;align-items:center;gap:14px;padding:0 20px;min-height:60px;border-radius:999px;border:1.5px solid #d0dddd;background:#fff;color:#61727c;transition:.18s ease}
+    .store-btn:hover{transform:translateY(-1px);background:#fbfcfc}
+    .store-icon-wrap{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--green-soft);flex:0 0 auto}
+    .store-icon-wrap svg{width:21px;height:21px;display:block}
     .store-copy{line-height:1.05}
-    .store-copy small{display:block;font-size:10.5px;font-weight:650;margin-bottom:4px;color:#6b7b85}
-    .store-copy strong{display:block;font-size:15px;color:#53636e}
+    .store-copy small{display:block;font-size:11px;font-weight:650;color:#74848d;margin-bottom:4px}
+    .store-copy strong{display:block;font-size:15px;color:#51626c}
 
-    /* Steps */
-    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
-    .num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:14px;font-weight:800;margin-bottom:16px}
-    .step h3{font-size:19px;margin:0 0 8px}
-    .step p{font-size:14.7px;line-height:1.66;color:var(--muted);margin:0}
+    .feature-box{border:1px solid var(--line);border-radius:30px;background:linear-gradient(180deg,#fff 0%, #fcfdfd 100%);overflow:hidden;box-shadow:0 12px 34px rgba(23,48,56,.04)}
+    .feature-tabs{display:flex;flex-wrap:wrap;gap:10px;padding:20px 20px 18px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fbfcfc 0%, #f7faf9 100%)}
+    .feature-tab{padding:12px 18px;border-radius:999px;border:1px solid transparent;background:transparent;color:#405460;font-weight:720;cursor:pointer;transition:.18s ease}
+    .feature-tab:hover{background:#eef5f4}
+    .feature-tab[aria-selected="true"]{background:var(--green);color:#fff;box-shadow:0 8px 18px rgba(10,116,107,.14)}
 
-    /* Final CTA */
+    .feature-panel{display:grid;grid-template-columns:minmax(0,.82fr) minmax(320px,1.18fr);align-items:center;gap:34px;padding:30px}
+    .feature-media-wrap{min-height:430px;border-radius:30px;border:1px solid #dfe8e8;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:34px;background:linear-gradient(155deg,#f8f4de 0%, #eef5f2 82%)}
+    .feature-media-wrap.bg-mint{background:linear-gradient(155deg,#eef9f7 0%, #f7fbfb 82%)}
+    .feature-media-wrap.bg-sky{background:linear-gradient(155deg,#eff5fb 0%, #f9fbfd 82%)}
+    .feature-media-wrap.bg-cream{background:linear-gradient(155deg,#faf6e4 0%, #fbfcf5 82%)}
+    .feature-media-wrap.bg-lilac{background:linear-gradient(155deg,#f5f1fb 0%, #fbfbfd 82%)}
+    .feature-media-wrap::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;right:-90px;bottom:-90px;background:rgba(255,255,255,.36)}
+    .feature-media{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:100%}
+    .feature-media img{width:auto;height:420px;max-height:420px;max-width:100%;object-fit:contain;filter:drop-shadow(0 18px 28px rgba(0,0,0,.14))}
+    .feature-copy{min-width:0}
+    .feature-kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:800;margin-bottom:10px}
+    .feature-copy h3{margin:0 0 14px;font-size:clamp(32px,4vw,52px);line-height:1.04;letter-spacing:-.04em}
+    .feature-copy p{margin:0;color:var(--muted);font-size:18px;line-height:1.74}
+    .feature-bullets{display:grid;gap:12px;margin:20px 0 0;padding:0;list-style:none}
+    .feature-bullets li{display:flex;gap:10px;align-items:flex-start;color:#5b6d77;font-size:14px;line-height:1.6}
+    .feature-bullets b{width:22px;height:22px;border-radius:50%;background:var(--green-soft);display:grid;place-items:center;color:var(--green);font-size:12px;flex:0 0 auto;margin-top:1px}
+    .feature-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--sky);color:#46606e;font-size:12px;font-weight:700;margin-top:22px}
+
+    .steps-section{background:var(--surface-soft)}
+    .steps-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .step-card{padding:26px;border:1px solid var(--line);border-radius:24px;background:#fff}
+    .step-card:nth-child(1){background:linear-gradient(180deg,#fff,#f4fbfa)}
+    .step-card:nth-child(2){background:linear-gradient(180deg,#fff,#fffced)}
+    .step-card:nth-child(3){background:linear-gradient(180deg,#fff,#f4f9ff)}
+    .step-no{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:15px;font-weight:800;margin-bottom:14px}
+    .step-card h3{margin:0 0 8px;font-size:20px}
+    .step-card p{margin:0;color:var(--muted);font-size:14.8px;line-height:1.64}
+
     .final-cta{padding-top:0}
-    .cta-box{background:#eaf7f6;border-radius:30px;padding:42px 44px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .cta-copy{max-width:660px}
-    .cta-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.03em;margin:0 0 9px}
-    .cta-copy p{font-size:16px;line-height:1.65;color:#52646f;margin:0}
+    .cta-box{display:flex;justify-content:space-between;align-items:center;gap:28px;padding:40px 42px;border-radius:30px;background:linear-gradient(135deg,#0d8b81,#09665f);color:#fff;position:relative;overflow:hidden}
+    .cta-box::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:rgba(247,221,104,.92);right:-90px;top:-130px}
+    .cta-copy{max-width:670px;position:relative;z-index:1}
+    .cta-copy h2{margin:0 0 10px;font-size:clamp(28px,4vw,40px);line-height:1.08;letter-spacing:-.03em}
+    .cta-copy p{margin:0;color:rgba(255,255,255,.86);font-size:16px;line-height:1.7}
+    .cta-box .actions{position:relative;z-index:1}
+    .cta-box .btn-outline{background:#fff;border-color:#fff;color:var(--green)}
+    .cta-box .btn-outline:hover{background:#eff8f6}
+    .cta-box .btn-primary{background:#055b55;box-shadow:none}
 
-    /* Footer */
-    footer{background:#111a1e;color:#d6dee1;padding:46px 0 108px}
-    .footer-logo{width:278px;max-width:100%;margin-bottom:22px}
-    .risk{border:1px solid rgba(255,255,255,.14);border-radius:15px;padding:15px 17px;margin-bottom:22px;background:rgba(255,255,255,.03);font-size:13px;color:#edf2f4}
-    .footer-copy{font-size:12.6px;line-height:1.72;color:#b7c0c5}
+    footer{background:#111a1e;color:#d6dee1;padding:46px 0 112px}
+    .footer-logo{width:280px;max-width:100%;margin-bottom:22px}
+    .risk{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:16px 18px;margin-bottom:22px;background:rgba(255,255,255,.03);font-size:13px;color:#edf2f4}
+    .footer-copy{font-size:12.8px;line-height:1.74;color:#b7c0c5}
     .footer-copy p{margin:0 0 8px}
     .footer-copy strong{color:#fff}
     .footer-copy a{color:#e3f6f3;text-decoration:underline;text-underline-offset:2px}
 
-    .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #e1eaec;box-shadow:0 -8px 28px rgba(18,39,45,.08)}
+    .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.98);border-top:1px solid var(--line);box-shadow:0 -8px 28px rgba(18,39,45,.08);transform:translateY(120%);transition:transform .24s ease}
+    .mobile-cta.show{transform:translateY(0)}
     .mobile-cta .btn{width:100%;min-height:54px;font-size:16px}
 
-    @media(max-width:1000px){
-      .hero-grid,.flip-intro,.product-grid{grid-template-columns:1fr}
-      .flip-title{position:static}
-      .why-grid{grid-template-columns:1fr 1fr}
-      .hero-visual{min-height:540px}
-      .stats{grid-template-columns:1fr 1fr}
-      .stat:nth-child(2):after{display:none}
-      .stat:nth-child(-n+2){border-bottom:1px solid #e5ecee}
-      .download-row{align-items:flex-start;flex-direction:column}
+    @media (max-width:1080px){
+      .hero-grid{grid-template-columns:1fr;gap:34px}
+      .hero-visual{min-height:520px}
+      .benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .feature-panel{grid-template-columns:1fr}
+      .feature-media-wrap{min-height:380px}
     }
-    @media(max-width:720px){
-      .container{width:min(calc(100% - 28px),var(--max))}
-      .nav{min-height:70px;padding:13px 0;align-items:flex-start}
-      .geojit-logo{width:132px}
-      .partner-logo{width:126px;max-height:34px}
-      .pipe{font-size:19px}
-      .nav>.btn{display:none}
-      .hero{padding:34px 0 20px}
-      h1{font-size:41px}
-      .hero-copy>p{font-size:16px}
-      .actions{gap:11px}
-      .actions .btn{width:100%;min-height:54px;padding:0 18px;font-size:16px}
-      .hero-visual{min-height:420px;margin-top:6px}
-      .visual-bg{inset:24px 0 0 0;border-radius:28px}
-      .flip-chip{left:14px;top:10px;padding:9px 13px;gap:9px}
-      .flip-chip img{width:38px;height:38px}
-      .flip-chip span{font-size:11.5px}
-      .desktop-hero{right:0;top:78px;width:88%}
-      .hero-phone.one{width:112px;left:16px;bottom:10px}
-      .hero-phone.two{width:112px;left:100px;bottom:4px}
-      .why-grid{grid-template-columns:1fr}
-      section{padding:58px 0}
-      .phones-panel{min-height:360px;gap:4px;padding:18px 8px 12px}
-      .phones-panel img{width:32%;max-width:130px}
-      .desktop-panel{min-height:300px;padding:18px}
-      .feature-item{grid-template-columns:44px 1fr;padding:17px;gap:12px}
-      .feature-no{width:40px;height:40px}
+    @media (max-width:860px){
+      .benefit-grid{grid-template-columns:1fr 1fr}
+      .flip-heading{align-items:flex-start;flex-direction:column}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat:nth-child(2)::after{display:none}
+      .stat:nth-child(-n+2){border-bottom:1px solid #e6edef}
       .steps-grid{grid-template-columns:1fr}
+      .cta-box{display:block;padding:34px 28px}
+      .cta-box .actions{margin-top:22px}
+    }
+    @media (max-width:640px){
+      .container{width:min(calc(100% - 28px), var(--max))}
+      .nav{min-height:72px;padding:14px 0;align-items:flex-start}
+      .brand-pair{gap:10px}
+      .brand-pair .geojit{width:138px}
+      .brand-pair .pipe{font-size:20px}
+      .brand-pair .union{width:132px;max-height:34px}
+      .nav .btn-small{display:none}
+
+      .hero{padding:34px 0 28px}
+      h1{font-size:46px;max-width:none}
+      .hero-copy>p{font-size:16px}
+      .actions .btn{width:100%}
+      .hero-points{gap:10px 14px}
+      .hero-visual{min-height:430px}
+      .hero-shell{display:none}
+      .flip-pill{left:0;top:0;padding:7px 10px 7px 8px;gap:7px;font-size:11px}
+      .flip-pill img{width:24px;height:24px}
+      .mobile-card{height:300px}
+      .mobile-card.main{right:8px;top:104px}
+      .mobile-card.secondary{right:126px;top:126px}
+      .floating-note{left:12px;bottom:18px;max-width:180px;padding:13px 14px}
+      .floating-note h3{font-size:16px}
+      .floating-note p{font-size:13px}
+
+      section{padding:64px 0}
+      .benefit-grid{grid-template-columns:1fr}
+      .feature-tabs{gap:8px;padding:16px}
+      .feature-tab{padding:10px 14px;font-size:14px}
+      .feature-panel{padding:18px}
+      .feature-media-wrap{min-height:290px;padding:18px}
+      .feature-media img{height:245px;max-height:245px;max-width:100%}
+      .feature-copy h3{font-size:40px}
+      .feature-copy p{font-size:16px}
       .store-actions{width:100%}
       .store-btn{width:100%;justify-content:flex-start}
-      .cta-box{padding:30px 22px;display:block}
-      .cta-box .actions{margin-top:22px}
+      .cta-box .actions .btn{width:100%}
       .footer-logo{width:220px}
-      footer{padding-bottom:116px}
+      footer{padding-bottom:118px}
       .mobile-cta{display:block}
     }
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+    @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <header class="topbar">
+  <header class="site-header">
     <div class="container nav">
-      <div class="logos" aria-label="Geojit and Union Bank of India">
-        <img class="geojit-logo" src="assets/geojit-logo.png" alt="Geojit" />
+      <div class="brand-pair" aria-label="Brand logos">
+        <img class="geojit" src="assets/geojit-logo.png" alt="Geojit" />
         <span class="pipe" aria-hidden="true">|</span>
-        <img class="partner-logo" src="assets/union-bank-logo.png" alt="Union Bank of India" />
+        <img class="union" src="assets/union-bank-logo.png" alt="Union Bank of India" />
       </div>
-      <a class="btn btn-outline btn-small js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+      <a class="btn btn-outline btn-small js-open-account" href="https://fliplink.geojit.com/d/B2BLogin" target="_blank" rel="noopener">Open Trading Account <span class="arrow" aria-hidden="true">↗</span></a>
     </div>
   </header>
 
@@ -217,30 +282,32 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">Trading &amp; Demat Account with Geojit</div>
-          <h1>Invest with insight. Grow with confidence.</h1>
-          <p>Open your Trading &amp; Demat Account with Geojit and experience a trusted investment partner, research-led insights and a powerful trading experience through <strong>Flip</strong>.</p>
+          <div class="eyebrow">Trading Account, backed by Geojit</div>
+          <h1>One smart way to invest and trade.</h1>
+          <p>Open your Geojit Trading Account and access research, market insights and a powerful trading experience through <strong>Flip</strong> — across mobile.</p>
           <div class="actions">
             <a class="btn btn-primary" href="#flip">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-open-account" href="https://fliplink.geojit.com/d/B2BLogin" target="_blank" rel="noopener">Open Trading Account <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
-          <div class="micro-points">
-            <span><b class="tick">✓</b> Research-backed investing</span>
-            <span><b class="tick">✓</b> Advanced trading tools</span>
-            <span><b class="tick">✓</b> Desktop + mobile access</span>
+          <div class="hero-points">
+            <span><b>✓</b> Research-led insights</span>
+            <span><b>✓</b> Secure digital access</span>
+            <span><b>✓</b> Multi-asset investing &amp; trading</span>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Flip on desktop and mobile">
-          <div class="visual-bg"></div>
-          <div class="flip-chip"><img src="assets/flip-logo.png" alt="Flip" /><span>Trading platform by Geojit</span></div>
-          <img class="desktop-hero" src="assets/flip-desktop-screen.png" alt="Flip desktop platform" loading="eager" />
-          <img class="hero-phone one" src="assets/research-technical-mobile.png" alt="Flip Research on mobile" loading="eager" />
-          <img class="hero-phone two" src="assets/option-chain-mobile.png" alt="Flip Option Chain on mobile" loading="eager" />
+        <div class="hero-visual" aria-label="Flip mobile screens">
+          <div class="flip-pill"><img src="assets/flip-symbol.png" alt="Flip" /><span>Flip by Geojit</span></div>
+          <div class="mobile-card secondary"><img src="assets/hero-basket-mobile.png" alt="Flip basket order screen" loading="eager" /></div>
+          <div class="mobile-card main"><img src="assets/hero-charting-mobile.png" alt="Flip charting screen" loading="eager" /></div>
+          <div class="floating-note">
+            <h3>Invest with insight</h3>
+            <p>Research, market intelligence and trading tools in one connected experience.</p>
+          </div>
         </div>
       </div>
 
-      <div class="container stats-wrap">
+      <div class="container">
         <div class="stats" aria-label="Geojit highlights">
           <div class="stat"><strong>39 years</strong><span>in the market</span></div>
           <div class="stat"><strong>16.96 lakh</strong><span>customers</span></div>
@@ -250,107 +317,114 @@
       </div>
     </section>
 
-    <section class="why">
+    <section class="value-section">
       <div class="container">
         <div class="section-head">
-          <h2>Why choose Geojit?</h2>
-          <p>Experience, research and technology come together to help you invest and trade with greater clarity.</p>
+          <h2>More value from your Geojit Trading Account.</h2>
+          <p>Useful benefits that keep your account simple, supported and cost-efficient.</p>
         </div>
-        <div class="why-grid">
-          <article class="why-card">
-            <div class="why-icon">◎</div>
-            <h3>Trusted investment partner</h3>
-            <p>Decades of market experience backed by a strong service network and a broad investment ecosystem.</p>
+        <div class="benefit-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon">₹</div>
+            <h3>No Account Opening Charges</h3>
+            <p>Get started without an account opening fee.</p>
           </article>
-          <article class="why-card">
-            <div class="why-icon">✦</div>
-            <h3>Research-led decisions</h3>
-            <p>Access in-house market research, ideas and analytics to support more informed investing and trading decisions.</p>
+          <article class="benefit-card">
+            <div class="benefit-icon">0</div>
+            <h3>No AMC on the Trading Account</h3>
+            <p>No annual maintenance charge on your Trading Account.</p>
           </article>
-          <article class="why-card">
-            <div class="why-icon">◈</div>
-            <h3>Powerful technology</h3>
-            <p>Use Flip across desktop and mobile to analyse markets, monitor your portfolio and act on opportunities.</p>
+          <article class="benefit-card">
+            <div class="benefit-icon">◫</div>
+            <h3>No Additional Subscription Charges</h3>
+            <p>Invest in pre-defined investment baskets without extra subscription charges.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon">☎</div>
+            <h3>No Charges for Assisted Trades</h3>
+            <p>No additional charge for trades executed through Customer Care assistance.</p>
+          </article>
+          <article class="benefit-card">
+            <div class="benefit-icon">✦</div>
+            <h3>Complimentary Research</h3>
+            <p>Research subscriptions worth ₹15,000 per annum.</p>
           </article>
         </div>
+        <p class="terms">Benefits are subject to applicable terms and conditions.</p>
       </div>
     </section>
 
-    <section id="flip">
-      <div class="container flip-intro">
-        <div class="flip-title">
-          <div class="flip-title-row"><img src="assets/flip-logo.png" alt="Flip by Geojit" /><span class="eyebrow" style="margin:0">Flip by Geojit</span></div>
-          <h2>Everything you need to follow the market with confidence.</h2>
-          <p>Flip brings trading, research, analysis and portfolio intelligence together in one connected experience.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://flip.geojit.com/" target="_blank" rel="noopener">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-
-        <div class="feature-list">
-          <article class="feature-item">
-            <div class="feature-no">01</div>
-            <div><h3>Advanced Charting</h3><p>Master the markets with interactive, multi-timeframe charts and advanced technical indicators.</p></div>
-          </article>
-          <article class="feature-item">
-            <div class="feature-no">02</div>
-            <div><h3>Advanced Option Chain</h3><p>Plan smarter trades with real-time Greeks, IV analytics, payoff charts and multi-leg strategy builders.</p></div>
-          </article>
-          <article class="feature-item">
-            <div class="feature-no">03</div>
-            <div><h3>Research</h3><p>Leverage in-house fundamental and technical research, enhanced by AI-driven insights and advanced analytics for every stock.</p></div>
-          </article>
-          <article class="feature-item">
-            <div class="feature-no">04</div>
-            <div><h3>Customised Watchlist</h3><p>Stay in control with flexible watchlists — from clean, simple views to detailed layouts, synced across all devices.</p></div>
-          </article>
-          <article class="feature-item">
-            <div class="feature-no">05</div>
-            <div><h3>Portfolio Insight</h3><p>See the big picture with stock scores on quality, valuation and technicals, plus comprehensive portfolio analysis.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="product-showcase">
+    <section class="flip-section" id="flip">
       <div class="container">
-        <div class="section-head">
-          <h2>One platform. Desktop and mobile.</h2>
-          <p>Analyse on a larger screen and stay connected on the move — without changing how you work.</p>
-        </div>
-        <div class="product-grid">
-          <div class="desktop-panel"><img src="assets/flip-desktop-screen.png" alt="Flip desktop trading platform" loading="lazy" /></div>
-          <div class="phones-panel" aria-label="Flip mobile app screens">
-            <img src="assets/research-technical-mobile.png" alt="Flip Research screen" loading="lazy" />
-            <img src="assets/option-chain-mobile.png" alt="Flip Option Chain screen" loading="lazy" />
-            <img src="assets/portfolio-insight-mobile.png" alt="Flip Portfolio Insight screen" loading="lazy" />
+        <div class="flip-heading">
+          <div class="flip-heading-copy">
+            <div class="flip-mark"><img src="assets/flip-symbol.png" alt="Flip" /><span>Flip by Geojit</span></div>
+            <h2>Explore what you can do with Flip.</h2>
+            <p>Choose a feature to preview how Flip helps you analyse markets, act on ideas and understand your portfolio.</p>
           </div>
-        </div>
-
-        <div class="download-row">
-          <div class="download-copy"><h3>Take Flip with you.</h3><p>Download the Flip app from Google Play or the App Store.</p></div>
-          <div class="store-actions">
+          <div class="store-actions" aria-label="Download Flip">
             <a class="store-btn" href="https://play.google.com/store/apps/details?hl=en_IN&id=com.geojit.flip_mobile" target="_blank" rel="noopener">
-              <span class="store-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3.5L17.5 12L4 20.5V3.5Z" fill="#61747F"/></svg></span>
+              <span class="store-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.6 3.4 13.4 12 3.6 20.6V3.4Z" fill="#00A86B"/>
+                  <path d="M13.4 12 16.5 9.3 20.1 11.4c.7.4.7.8 0 1.2l-3.6 2.1L13.4 12Z" fill="#F4C542"/>
+                  <path d="m3.6 3.4 12.9 5.9-3.1 2.7L3.6 3.4Z" fill="#3B82F6"/>
+                  <path d="m3.6 20.6 12.9-5.9-3.1-2.7-9.8 8.6Z" fill="#EF4444"/>
+                </svg>
+              </span>
               <span class="store-copy"><small>Get it on</small><strong>Google Play</strong></span>
             </a>
             <a class="store-btn" href="https://apps.apple.com/in/app/flip-by-geojit/id6443632983" target="_blank" rel="noopener">
-              <span class="store-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.6 12.5c0-2 1.7-3 1.8-3.1-1-.1-2.5 1-3 1-.6 0-1.6-.9-2.6-.9-1.4 0-2.7.8-3.4 2-.9 1.6-.2 4 0 4.7.4 1 .9 2.2 1.8 2.1.8 0 1.1-.5 2.1-.5 1 0 1.3.5 2.1.5.9 0 1.5-1 1.9-2 .4-.8.5-1.2.5-1.3-.1 0-1.2-.5-1.2-2.5ZM13.9 8.4c.3-.4.6-1 .6-1.5-.5 0-1.1.3-1.4.7-.3.3-.6.9-.6 1.4.6.1 1.1-.2 1.4-.6Z" fill="#61747F"/></svg></span>
+              <span class="store-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16.9 12.9c0-2.2 1.8-3.3 1.9-3.4-1-.1-2.5 1.2-3.1 1.2-.7 0-1.7-1.1-2.8-1.1-1.5 0-2.9.9-3.7 2.3-1.6 2.8-.4 6.9 1.1 9.1.7 1.1 1.6 2.3 2.8 2.3 1.1 0 1.6-.7 2.9-.7 1.4 0 1.8.7 2.9.7 1.2 0 2-1.1 2.7-2.2.8-1.2 1.2-2.4 1.2-2.5-.1 0-2.3-.9-2.3-3.5ZM15.8 8.2c.6-.8 1-1.9.9-3-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2-.5 2.7-1.3Z" transform="scale(.9) translate(1.3 0)" fill="#5E707A"/>
+                </svg>
+              </span>
               <span class="store-copy"><small>Download on the</small><strong>App Store</strong></span>
             </a>
           </div>
         </div>
+
+        <div class="feature-box">
+          <div class="feature-tabs" role="tablist" aria-label="Flip features">
+            <button class="feature-tab" type="button" role="tab" aria-selected="true" data-feature="charting">Advanced Charting</button>
+            <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature="options">Advanced Option Chain</button>
+            <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature="research">Research</button>
+            <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature="watchlist">Customised Watchlist</button>
+            <button class="feature-tab" type="button" role="tab" aria-selected="false" data-feature="portfolio">Portfolio Insight</button>
+          </div>
+
+          <div class="feature-panel" role="tabpanel" aria-live="polite">
+            <div class="feature-media-wrap bg-sky" id="featureWrap">
+              <div class="feature-media" id="featureMedia">
+                <img id="featureImage" src="assets/research-technical-mobile.webp" alt="Advanced charting on Flip mobile" />
+              </div>
+            </div>
+            <div class="feature-copy">
+              <div class="feature-kicker">Flip feature</div>
+              <h3 id="featureTitle">Advanced Charting</h3>
+              <p id="featureDescription">Master the markets with interactive, multi-timeframe charts and advanced technical indicators.</p>
+              <ul class="feature-bullets" id="featureBullets">
+                <li><b>✓</b><span>Track market opportunities through clean, information-rich visual layouts.</span></li>
+                <li><b>✓</b><span>Use a mobile-first trading experience designed to keep decisions simple.</span></li>
+              </ul>
+              <div class="feature-badge" id="featureBadge">Mobile-first trading experience</div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section>
+    <section class="steps-section">
       <div class="container">
-        <div class="section-head"><h2>Getting started is simple.</h2><p>Complete your account opening journey online and start using Flip once your account is activated.</p></div>
+        <div class="section-head">
+          <h2>Open your Trading Account in three simple steps.</h2>
+          <p>Start with Flip, complete the required verification and begin investing or trading once your account is activated.</p>
+        </div>
         <div class="steps-grid">
-          <article class="step"><div class="num">1</div><h3>Start online</h3><p>Begin your Trading &amp; Demat Account application through Geojit's secure digital journey.</p></article>
-          <article class="step"><div class="num">2</div><h3>Complete verification</h3><p>Provide the required KYC, bank and account details to complete your application.</p></article>
-          <article class="step"><div class="num">3</div><h3>Access Flip</h3><p>Once activated, log in to Flip and start exploring markets, research and your portfolio.</p></article>
+          <article class="step-card"><div class="step-no">1</div><h3>Download Flip</h3><p>Install Flip from Google Play or the App Store and begin your account opening journey.</p></article>
+          <article class="step-card"><div class="step-no">2</div><h3>Complete verification</h3><p>Provide the required KYC, bank and account details to complete your application securely.</p></article>
+          <article class="step-card"><div class="step-no">3</div><h3>Login and trade / invest</h3><p>Once activated, log in to Flip to explore markets, access research and start investing or trading.</p></article>
         </div>
       </div>
     </section>
@@ -358,10 +432,13 @@
     <section class="final-cta">
       <div class="container">
         <div class="cta-box">
-          <div class="cta-copy"><h2>Ready to get started?</h2><p>Open your Trading &amp; Demat Account with Geojit and discover the power of Flip.</p></div>
+          <div class="cta-copy">
+            <h2>Ready to start?</h2>
+            <p>Open your Geojit Trading Account and experience research, market insights and powerful tools through Flip.</p>
+          </div>
           <div class="actions">
-            <a class="btn btn-primary" href="https://flip.geojit.com/" target="_blank" rel="noopener">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
-            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="#flip">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-open-account" href="https://fliplink.geojit.com/d/B2BLogin" target="_blank" rel="noopener">Open Trading Account <span class="arrow" aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -385,12 +462,111 @@
     </div>
   </footer>
 
-  <div class="mobile-cta"><a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a></div>
+  <div class="mobile-cta"><a class="btn btn-outline js-open-account" href="https://fliplink.geojit.com/d/B2BLogin" target="_blank" rel="noopener">Open Trading Account <span class="arrow" aria-hidden="true">↗</span></a></div>
 
   <script>
     const params = new URLSearchParams(location.search);
-    const openAccountUrl = params.get('openAccountUrl') || 'https://hello.geojit.com/';
+    const openAccountUrl = params.get('openAccountUrl') || 'https://fliplink.geojit.com/d/B2BLogin';
     document.querySelectorAll('.js-open-account').forEach(a => a.href = openAccountUrl);
+
+    const featureData = {
+      charting: {
+        title:'Advanced Charting',
+        description:'Master the markets with interactive, multi-timeframe charts and advanced technical indicators.',
+        image:'assets/research-technical-mobile.webp',
+        alt:'Advanced charting on Flip mobile',
+        bg:'bg-sky',
+        badge:'Mobile-first trading experience',
+        bullets:[
+          'Track market opportunities through clean, information-rich visual layouts.',
+          'Use a mobile-first trading experience designed to keep decisions simple.'
+        ]
+      },
+      options: {
+        title:'Advanced Option Chain',
+        description:'Plan smarter trades with real-time Greeks, IV analytics, payoff charts, and multi-leg strategy builders.',
+        image:'assets/option-chain-mobile.webp',
+        alt:'Advanced option chain on Flip mobile',
+        bg:'bg-lilac',
+        badge:'For active options traders',
+        bullets:[
+          'View option data through a structured and intuitive mobile interface.',
+          'Support decision-making with analytics and multi-leg planning tools.'
+        ]
+      },
+      research: {
+        title:'Research',
+        description:'Leverage in-house fundamental and technical research, enhanced by AI-driven insights and advanced analytics for every stock.',
+        image:'assets/research-technical-mobile.webp',
+        alt:'Research on Flip mobile',
+        bg:'bg-mint',
+        badge:'Ideas backed by research',
+        bullets:[
+          'Track actionable ideas and updates in a clear research interface.',
+          'Use in-house insights to support better-informed decisions.'
+        ]
+      },
+      watchlist: {
+        title:'Customised Watchlist',
+        description:'Stay in control with flexible watchlists — from clean, simple views to detailed layouts, synced across all devices.',
+        image:'assets/watchlist-mobile.png',
+        alt:'Customised watchlist on Flip mobile',
+        bg:'bg-cream',
+        badge:'Simple, flexible and synced',
+        bullets:[
+          'Monitor the stocks and baskets that matter to you.',
+          'Move between quick overview and more detailed layouts with ease.'
+        ]
+      },
+      portfolio: {
+        title:'Portfolio Insight',
+        description:'See the big picture with stock scores on quality, valuation, and technicals, plus comprehensive portfolio analysis.',
+        image:'assets/portfolio-insight-mobile.webp',
+        alt:'Portfolio insights on Flip mobile',
+        bg:'bg-mint',
+        badge:'Understand your portfolio better',
+        bullets:[
+          'View helpful quality and portfolio-level insights in one place.',
+          'Track holdings with a clearer, more informed perspective.'
+        ]
+      }
+    };
+
+    const tabs = document.querySelectorAll('.feature-tab');
+    const image = document.getElementById('featureImage');
+    const title = document.getElementById('featureTitle');
+    const desc = document.getElementById('featureDescription');
+    const badge = document.getElementById('featureBadge');
+    const bullets = document.getElementById('featureBullets');
+    const wrap = document.getElementById('featureWrap');
+
+    function renderBullets(items){
+      bullets.innerHTML = items.map(item => `<li><b>✓</b><span>${item}</span></li>`).join('');
+    }
+    function setFeature(key){
+      const data = featureData[key];
+      if(!data) return;
+      tabs.forEach(tab => tab.setAttribute('aria-selected', String(tab.dataset.feature === key)));
+      image.src = data.image;
+      image.alt = data.alt;
+      title.textContent = data.title;
+      desc.textContent = data.description;
+      badge.textContent = data.badge;
+      renderBullets(data.bullets);
+      wrap.className = 'feature-media-wrap ' + data.bg;
+    }
+    tabs.forEach(tab => tab.addEventListener('click', () => setFeature(tab.dataset.feature)));
+
+    const mobileCTA = document.querySelector('.mobile-cta');
+    const hero = document.querySelector('.hero');
+    function toggleMobileCTA(){
+      if(window.innerWidth > 640 || !mobileCTA || !hero) return;
+      const show = window.scrollY > hero.offsetHeight * 0.65;
+      mobileCTA.classList.toggle('show', show);
+    }
+    window.addEventListener('scroll', toggleMobileCTA, {passive:true});
+    window.addEventListener('resize', toggleMobileCTA);
+    toggleMobileCTA();
   </script>
 </body>
 </html>
