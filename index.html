@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#056b64" />
+  <title>Open a Trading & Demat Account with Geojit</title>
+  <meta name="description" content="Discover the benefits of opening a Trading & Demat Account with Geojit and explore Flip, Geojit's trading platform." />
+  <style>
+    :root{
+      --green:#056b64;
+      --green-hover:#045a55;
+      --teal:#0b8f83;
+      --mint:#edf7f6;
+      --cream:#f4f3e5;
+      --soft:#f7f9f9;
+      --card:#fbfcfc;
+      --line:#dce6e8;
+      --ink:#17252d;
+      --muted:#667782;
+      --white:#fff;
+      --radius:26px;
+      --shadow:0 18px 50px rgba(21,44,52,.08);
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--ink);background:#fff;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+
+    /* Header */
+    .topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,230,232,.92)}
+    .nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logos{display:flex;align-items:center;gap:16px;min-width:0;flex-wrap:wrap}
+    .geojit-logo{width:162px;height:auto}
+    .pipe{font-size:24px;line-height:1;color:#9aa8ae;font-weight:300}
+    .partner-logo{width:158px;max-height:42px;object-fit:contain}
+
+    /* CTA */
+    .actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:11px;min-height:60px;padding:0 28px;border-radius:999px;border:1.5px solid transparent;font-size:17px;font-weight:750;transition:.18s ease;white-space:nowrap}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--green);color:#fff;box-shadow:0 10px 24px rgba(5,107,100,.16)}
+    .btn-primary:hover{background:var(--green-hover)}
+    .btn-outline{background:transparent;color:var(--green);border-color:var(--teal)}
+    .btn-outline:hover{background:var(--mint)}
+    .btn-small{min-height:46px;padding:0 20px;font-size:14.5px}
+    .arrow{font-size:18px;line-height:1;transform:translateY(-1px)}
+
+    /* Hero */
+    .hero{padding:64px 0 34px;background:radial-gradient(circle at 88% 8%,rgba(245,213,78,.18),transparent 25%),linear-gradient(180deg,#fff 0%,#fbfdfd 100%);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;padding:8px 13px;border-radius:999px;background:var(--mint);border:1px solid #d8ebe9;color:var(--green);font-size:13px;font-weight:800;margin-bottom:18px}
+    h1{font-size:clamp(40px,5vw,62px);line-height:1.03;letter-spacing:-.04em;margin:0 0 18px;max-width:690px}
+    .hero-copy>p{font-size:18px;line-height:1.72;color:var(--muted);margin:0 0 28px;max-width:660px}
+    .micro-points{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:22px;color:#5b6b75;font-size:14px}
+    .micro-points span{display:flex;align-items:center;gap:8px}
+    .tick{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--green);font-size:12px;font-weight:900}
+
+    .hero-visual{position:relative;min-height:560px}
+    .visual-bg{position:absolute;inset:34px 0 0 0;border-radius:34px;background:linear-gradient(150deg,#f5f3df 0%,#edf5f3 100%);border:1px solid #dce6e1}
+    .flip-chip{position:absolute;left:28px;top:18px;z-index:4;display:flex;align-items:center;gap:12px;background:#fff;border-radius:999px;padding:12px 18px;box-shadow:0 12px 34px rgba(20,42,48,.10)}
+    .flip-chip img{width:48px;height:48px;object-fit:contain}
+    .flip-chip span{font-size:14px;font-weight:750;color:#263640}
+    .desktop-hero{position:absolute;right:18px;top:76px;width:82%;z-index:1;filter:drop-shadow(0 24px 42px rgba(0,0,0,.13))}
+    .hero-phone{position:absolute;z-index:3;filter:drop-shadow(0 18px 30px rgba(0,0,0,.16));height:auto}
+    .hero-phone.one{width:160px;left:42px;bottom:16px;transform:rotate(-5deg)}
+    .hero-phone.two{width:160px;left:176px;bottom:8px;transform:rotate(4deg)}
+
+    /* Stats */
+    .stats-wrap{padding-top:18px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 12px 34px rgba(20,42,48,.04)}
+    .stat{padding:22px 16px;text-align:center;position:relative}
+    .stat:not(:last-child):after{content:"";position:absolute;right:0;top:26%;height:48%;width:1px;background:#e5ecee}
+    .stat strong{display:block;font-size:28px;line-height:1.1;letter-spacing:-.03em}
+    .stat span{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+
+    section{padding:78px 0}
+    .section-head{max-width:760px;margin-bottom:32px}
+    .section-head h2{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.035em;margin:0 0 12px}
+    .section-head p{font-size:17px;line-height:1.7;color:var(--muted);margin:0}
+
+    /* Why Geojit */
+    .why{background:var(--soft)}
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .why-card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px}
+    .why-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#dff0ef;color:var(--green);font-size:19px;font-weight:900;margin-bottom:16px}
+    .why-card h3{font-size:20px;line-height:1.25;margin:0 0 9px}
+    .why-card p{font-size:14.7px;line-height:1.68;color:var(--muted);margin:0}
+
+    /* Flip features: deliberately text-first, no cropped screenshots */
+    .flip-intro{display:grid;grid-template-columns:.72fr 1.28fr;gap:38px;align-items:start}
+    .flip-title{position:sticky;top:112px}
+    .flip-title-row{display:flex;align-items:center;gap:13px;margin-bottom:14px}
+    .flip-title-row img{width:50px;height:50px;object-fit:contain}
+    .flip-title h2{font-size:clamp(32px,4vw,46px);line-height:1.08;letter-spacing:-.035em;margin:0 0 12px}
+    .flip-title p{font-size:16.5px;line-height:1.7;color:var(--muted);margin:0 0 24px}
+    .feature-list{display:grid;gap:12px}
+    .feature-item{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px}
+    .feature-no{width:44px;height:44px;border-radius:13px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:14px;font-weight:850}
+    .feature-item h3{font-size:19px;line-height:1.25;margin:0 0 6px}
+    .feature-item p{font-size:14.8px;line-height:1.66;color:var(--muted);margin:0}
+
+    /* Product showcase */
+    .product-showcase{background:var(--soft)}
+    .product-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
+    .desktop-panel,.phones-panel{background:linear-gradient(150deg,#f4f3e4 0%,#edf5f3 100%);border:1px solid #dce6e2;border-radius:30px;min-height:460px;position:relative;overflow:hidden}
+    .desktop-panel{display:grid;place-items:center;padding:30px}
+    .desktop-panel img{width:96%;filter:drop-shadow(0 24px 44px rgba(0,0,0,.12))}
+    .phones-panel{display:flex;align-items:flex-end;justify-content:center;gap:10px;padding:28px 18px 18px}
+    .phones-panel img{width:31%;max-width:175px;min-width:0;filter:drop-shadow(0 18px 30px rgba(0,0,0,.14))}
+    .phones-panel img:nth-child(2){transform:translateY(-18px)}
+
+    /* App buttons */
+    .download-row{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:22px 24px;background:#fff;border:1px solid var(--line);border-radius:22px}
+    .download-copy h3{font-size:20px;margin:0 0 5px}
+    .download-copy p{font-size:14.5px;color:var(--muted);margin:0}
+    .store-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .store-btn{display:inline-flex;align-items:center;gap:12px;min-height:58px;padding:0 18px;background:#fff;border:1.5px solid #cedbdd;border-radius:999px;color:#566772;transition:.18s ease}
+    .store-btn:hover{background:#fbfcfc;transform:translateY(-1px)}
+    .store-icon-circle{width:36px;height:36px;border-radius:50%;background:#e2f1f1;display:grid;place-items:center;flex:0 0 auto}
+    .store-icon-circle svg{width:17px;height:17px}
+    .store-copy{line-height:1.05}
+    .store-copy small{display:block;font-size:10.5px;font-weight:650;margin-bottom:4px;color:#6b7b85}
+    .store-copy strong{display:block;font-size:15px;color:#53636e}
+
+    /* Steps */
+    .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:26px}
+    .num{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:14px;font-weight:800;margin-bottom:16px}
+    .step h3{font-size:19px;margin:0 0 8px}
+    .step p{font-size:14.7px;line-height:1.66;color:var(--muted);margin:0}
+
+    /* Final CTA */
+    .final-cta{padding-top:0}
+    .cta-box{background:#eaf7f6;border-radius:30px;padding:42px 44px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .cta-copy{max-width:660px}
+    .cta-copy h2{font-size:clamp(28px,4vw,40px);line-height:1.1;letter-spacing:-.03em;margin:0 0 9px}
+    .cta-copy p{font-size:16px;line-height:1.65;color:#52646f;margin:0}
+
+    /* Footer */
+    footer{background:#111a1e;color:#d6dee1;padding:46px 0 108px}
+    .footer-logo{width:278px;max-width:100%;margin-bottom:22px}
+    .risk{border:1px solid rgba(255,255,255,.14);border-radius:15px;padding:15px 17px;margin-bottom:22px;background:rgba(255,255,255,.03);font-size:13px;color:#edf2f4}
+    .footer-copy{font-size:12.6px;line-height:1.72;color:#b7c0c5}
+    .footer-copy p{margin:0 0 8px}
+    .footer-copy strong{color:#fff}
+    .footer-copy a{color:#e3f6f3;text-decoration:underline;text-underline-offset:2px}
+
+    .mobile-cta{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid #e1eaec;box-shadow:0 -8px 28px rgba(18,39,45,.08)}
+    .mobile-cta .btn{width:100%;min-height:54px;font-size:16px}
+
+    @media(max-width:1000px){
+      .hero-grid,.flip-intro,.product-grid{grid-template-columns:1fr}
+      .flip-title{position:static}
+      .why-grid{grid-template-columns:1fr 1fr}
+      .hero-visual{min-height:540px}
+      .stats{grid-template-columns:1fr 1fr}
+      .stat:nth-child(2):after{display:none}
+      .stat:nth-child(-n+2){border-bottom:1px solid #e5ecee}
+      .download-row{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:720px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .nav{min-height:70px;padding:13px 0;align-items:flex-start}
+      .geojit-logo{width:132px}
+      .partner-logo{width:126px;max-height:34px}
+      .pipe{font-size:19px}
+      .nav>.btn{display:none}
+      .hero{padding:34px 0 20px}
+      h1{font-size:41px}
+      .hero-copy>p{font-size:16px}
+      .actions{gap:11px}
+      .actions .btn{width:100%;min-height:54px;padding:0 18px;font-size:16px}
+      .hero-visual{min-height:420px;margin-top:6px}
+      .visual-bg{inset:24px 0 0 0;border-radius:28px}
+      .flip-chip{left:14px;top:10px;padding:9px 13px;gap:9px}
+      .flip-chip img{width:38px;height:38px}
+      .flip-chip span{font-size:11.5px}
+      .desktop-hero{right:0;top:78px;width:88%}
+      .hero-phone.one{width:112px;left:16px;bottom:10px}
+      .hero-phone.two{width:112px;left:100px;bottom:4px}
+      .why-grid{grid-template-columns:1fr}
+      section{padding:58px 0}
+      .phones-panel{min-height:360px;gap:4px;padding:18px 8px 12px}
+      .phones-panel img{width:32%;max-width:130px}
+      .desktop-panel{min-height:300px;padding:18px}
+      .feature-item{grid-template-columns:44px 1fr;padding:17px;gap:12px}
+      .feature-no{width:40px;height:40px}
+      .steps-grid{grid-template-columns:1fr}
+      .store-actions{width:100%}
+      .store-btn{width:100%;justify-content:flex-start}
+      .cta-box{padding:30px 22px;display:block}
+      .cta-box .actions{margin-top:22px}
+      .footer-logo{width:220px}
+      footer{padding-bottom:116px}
+      .mobile-cta{display:block}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="logos" aria-label="Geojit and Union Bank of India">
+        <img class="geojit-logo" src="assets/geojit-logo.png" alt="Geojit" />
+        <span class="pipe" aria-hidden="true">|</span>
+        <img class="partner-logo" src="assets/union-bank-logo.png" alt="Union Bank of India" />
+      </div>
+      <a class="btn btn-outline btn-small js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Trading &amp; Demat Account with Geojit</div>
+          <h1>Invest with insight. Grow with confidence.</h1>
+          <p>Open your Trading &amp; Demat Account with Geojit and experience a trusted investment partner, research-led insights and a powerful trading experience through <strong>Flip</strong>.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#flip">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+          <div class="micro-points">
+            <span><b class="tick">✓</b> Research-backed investing</span>
+            <span><b class="tick">✓</b> Advanced trading tools</span>
+            <span><b class="tick">✓</b> Desktop + mobile access</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Flip on desktop and mobile">
+          <div class="visual-bg"></div>
+          <div class="flip-chip"><img src="assets/flip-logo.png" alt="Flip" /><span>Trading platform by Geojit</span></div>
+          <img class="desktop-hero" src="assets/flip-desktop-screen.png" alt="Flip desktop platform" loading="eager" />
+          <img class="hero-phone one" src="assets/research-technical-mobile.png" alt="Flip Research on mobile" loading="eager" />
+          <img class="hero-phone two" src="assets/option-chain-mobile.png" alt="Flip Option Chain on mobile" loading="eager" />
+        </div>
+      </div>
+
+      <div class="container stats-wrap">
+        <div class="stats" aria-label="Geojit highlights">
+          <div class="stat"><strong>39 years</strong><span>in the market</span></div>
+          <div class="stat"><strong>16.96 lakh</strong><span>customers</span></div>
+          <div class="stat"><strong>525</strong><span>branches across India &amp; GCC</span></div>
+          <div class="stat"><strong>₹1.11 lakh cr</strong><span>customer assets*</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>Why choose Geojit?</h2>
+          <p>Experience, research and technology come together to help you invest and trade with greater clarity.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card">
+            <div class="why-icon">◎</div>
+            <h3>Trusted investment partner</h3>
+            <p>Decades of market experience backed by a strong service network and a broad investment ecosystem.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">✦</div>
+            <h3>Research-led decisions</h3>
+            <p>Access in-house market research, ideas and analytics to support more informed investing and trading decisions.</p>
+          </article>
+          <article class="why-card">
+            <div class="why-icon">◈</div>
+            <h3>Powerful technology</h3>
+            <p>Use Flip across desktop and mobile to analyse markets, monitor your portfolio and act on opportunities.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="flip">
+      <div class="container flip-intro">
+        <div class="flip-title">
+          <div class="flip-title-row"><img src="assets/flip-logo.png" alt="Flip by Geojit" /><span class="eyebrow" style="margin:0">Flip by Geojit</span></div>
+          <h2>Everything you need to follow the market with confidence.</h2>
+          <p>Flip brings trading, research, analysis and portfolio intelligence together in one connected experience.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://flip.geojit.com/" target="_blank" rel="noopener">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="feature-list">
+          <article class="feature-item">
+            <div class="feature-no">01</div>
+            <div><h3>Advanced Charting</h3><p>Master the markets with interactive, multi-timeframe charts and advanced technical indicators.</p></div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-no">02</div>
+            <div><h3>Advanced Option Chain</h3><p>Plan smarter trades with real-time Greeks, IV analytics, payoff charts and multi-leg strategy builders.</p></div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-no">03</div>
+            <div><h3>Research</h3><p>Leverage in-house fundamental and technical research, enhanced by AI-driven insights and advanced analytics for every stock.</p></div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-no">04</div>
+            <div><h3>Customised Watchlist</h3><p>Stay in control with flexible watchlists — from clean, simple views to detailed layouts, synced across all devices.</p></div>
+          </article>
+          <article class="feature-item">
+            <div class="feature-no">05</div>
+            <div><h3>Portfolio Insight</h3><p>See the big picture with stock scores on quality, valuation and technicals, plus comprehensive portfolio analysis.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="product-showcase">
+      <div class="container">
+        <div class="section-head">
+          <h2>One platform. Desktop and mobile.</h2>
+          <p>Analyse on a larger screen and stay connected on the move — without changing how you work.</p>
+        </div>
+        <div class="product-grid">
+          <div class="desktop-panel"><img src="assets/flip-desktop-screen.png" alt="Flip desktop trading platform" loading="lazy" /></div>
+          <div class="phones-panel" aria-label="Flip mobile app screens">
+            <img src="assets/research-technical-mobile.png" alt="Flip Research screen" loading="lazy" />
+            <img src="assets/option-chain-mobile.png" alt="Flip Option Chain screen" loading="lazy" />
+            <img src="assets/portfolio-insight-mobile.png" alt="Flip Portfolio Insight screen" loading="lazy" />
+          </div>
+        </div>
+
+        <div class="download-row">
+          <div class="download-copy"><h3>Take Flip with you.</h3><p>Download the Flip app from Google Play or the App Store.</p></div>
+          <div class="store-actions">
+            <a class="store-btn" href="https://play.google.com/store/apps/details?hl=en_IN&id=com.geojit.flip_mobile" target="_blank" rel="noopener">
+              <span class="store-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 3.5L17.5 12L4 20.5V3.5Z" fill="#61747F"/></svg></span>
+              <span class="store-copy"><small>Get it on</small><strong>Google Play</strong></span>
+            </a>
+            <a class="store-btn" href="https://apps.apple.com/in/app/flip-by-geojit/id6443632983" target="_blank" rel="noopener">
+              <span class="store-icon-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M15.6 12.5c0-2 1.7-3 1.8-3.1-1-.1-2.5 1-3 1-.6 0-1.6-.9-2.6-.9-1.4 0-2.7.8-3.4 2-.9 1.6-.2 4 0 4.7.4 1 .9 2.2 1.8 2.1.8 0 1.1-.5 2.1-.5 1 0 1.3.5 2.1.5.9 0 1.5-1 1.9-2 .4-.8.5-1.2.5-1.3-.1 0-1.2-.5-1.2-2.5ZM13.9 8.4c.3-.4.6-1 .6-1.5-.5 0-1.1.3-1.4.7-.3.3-.6.9-.6 1.4.6.1 1.1-.2 1.4-.6Z" fill="#61747F"/></svg></span>
+              <span class="store-copy"><small>Download on the</small><strong>App Store</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head"><h2>Getting started is simple.</h2><p>Complete your account opening journey online and start using Flip once your account is activated.</p></div>
+        <div class="steps-grid">
+          <article class="step"><div class="num">1</div><h3>Start online</h3><p>Begin your Trading &amp; Demat Account application through Geojit's secure digital journey.</p></article>
+          <article class="step"><div class="num">2</div><h3>Complete verification</h3><p>Provide the required KYC, bank and account details to complete your application.</p></article>
+          <article class="step"><div class="num">3</div><h3>Access Flip</h3><p>Once activated, log in to Flip and start exploring markets, research and your portfolio.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-copy"><h2>Ready to get started?</h2><p>Open your Trading &amp; Demat Account with Geojit and discover the power of Flip.</p></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://flip.geojit.com/" target="_blank" rel="noopener">Explore Flip <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <img class="footer-logo" src="assets/geojit-logo-invert.png" alt="Geojit" />
+      <div class="risk"><strong>Disclaimer:</strong> Investments in securities market are subject to market risks, read all related documents carefully before investing. Registration granted by SEBI, membership of BSE, NSE and NCDEX is not a guarantee or warranty of the broker's financial soundness.</div>
+      <div class="footer-copy">
+        <p><strong>Geojit Investments Ltd., Registered Office:</strong> 7th Floor,34/659-P, Civil Line Road, Padivattom, Edappally, Kochi-682024, Kerala, India</p>
+        <p>Phone: +91 0484- 400 1000 / 0484-641 1000. Website: <a href="https://www.geojit.com/gil" target="_blank" rel="noopener">www.geojit.com/gil</a>.</p>
+        <p>For investor queries: <a href="mailto:customercare@geojit.com">customercare@geojit.com</a>, For grievances: <a href="mailto:grievances@geojit.com">grievances@geojit.com</a>, For DP grievances: <a href="mailto:grievances@geojit.com">dp_ grievances@geojit.com</a></p>
+        <p>Compliance Officer (Stock Broker): <strong>ANCY C SUNNY</strong>, Email: <a href="mailto:compliance@geojit.com">compliance@geojit.com</a>, Contact No: 0484- 400 1000 / 0484-641 1000</p>
+        <p>Compliance Officer (Depository &amp; Research Analyst): <strong>Indu K</strong>, Email: <a href="mailto:indu_k@geojit.com">indu_k@geojit.com</a>, Contact No: <strong>0484- 400 1000 / 0484-641 1000</strong></p>
+        <p>Corporate Identity Number: U66110KL2023PLC080586, SEBI Stock Broker Registration No: INZ000318938, Depository Participant: IN-DP-781-2024, Research Entity SEBI Reg No: INH000019567</p>
+        <p>Member: NSE TM ID 13372, BSE TM ID 328, MCX TM ID 55920, NCDEX TM ID 1243.</p>
+        <p style="margin-top:12px;color:#8f9ba1">*Customer assets as on 30 June 2026.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-cta"><a class="btn btn-outline js-open-account" href="https://hello.geojit.com/" target="_blank" rel="noopener">Open Demat Account <span class="arrow" aria-hidden="true">↗</span></a></div>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const openAccountUrl = params.get('openAccountUrl') || 'https://hello.geojit.com/';
+    document.querySelectorAll('.js-open-account').forEach(a => a.href = openAccountUrl);
+  </script>
+</body>
+</html>
